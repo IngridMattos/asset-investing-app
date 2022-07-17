@@ -13,5 +13,7 @@
         "ecmaVersion": "latest"
     },
     "rules": {
+        "eslint prefer-template": "error",
+        "eslint-env es6"
     }
 }
