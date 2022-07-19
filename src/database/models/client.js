@@ -5,10 +5,10 @@ const ClientShema = (sequelize, DataTypes) => {
       autoIncrement: true,
       type: DataTypes.INTEGER,
     },
-    name: DataTypes.STRING,
-    balance: DataTypes.DECIMAL(10, 2),
-    created: DataTypes.DATE,
-    updated: DataTypes.DATE,
+    nome: DataTypes.STRING,
+    saldo: DataTypes.DECIMAL(10, 2),
+    criado: DataTypes.DATE,
+    atualizado: DataTypes.DATE,
   });
 
   return ClientTable;

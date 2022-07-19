@@ -1,16 +1,16 @@
 const WalletShema = (sequelize, DataTypes) => {
   const WalletTable = sequelize.define('Wallet', {
-      clientId: {
+      codCliente: {
         primaryKey:true,
         foreignKey: true,
         type: DataTypes.INTEGER,
       },
-      assetId: {
+      codAtivo: {
         primaryKey:true,
         foreignKey: true,
         type: DataTypes.INTEGER,
       },
-      amountCLientAssets: {
+      qtdeAtivo: {
         type: DataTypes.INTEGER,
       }
   },
@@ -22,14 +22,14 @@ const WalletShema = (sequelize, DataTypes) => {
       models.Client.belongsToMany(models.Asset, {
           as: 'Assets',
           through: 'Wallet',
-          foreignKey: 'assetId',
-          otherKey: 'clientId'
+          foreignKey: 'codAtivo',
+          otherKey: 'codCliente'
       });
       models.Asset.belongsToMany(models.Client, {
           as: 'categories',
           through: 'Wallet',
-          foreignKey: 'clientId',
-          otherKey: 'assetId'
+          foreignKey: 'codCliente',
+          otherKey: 'codAtivo'
       });
   }
 
