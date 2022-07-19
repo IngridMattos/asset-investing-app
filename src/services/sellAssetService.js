@@ -1,3 +1,18 @@
+const model = require('../database/models');
+
+const { getClientAssets } = require('../utils/getClientAssets');
+
+async function updatingClientAssets(codCliente, codAtivo, qtdeAtivoVendido, qtTotal) {
+  const [qtdUpdated] = await model.Wallet.update(
+    {
+      qtdeAtivo: qtTotal - qtdeAtivoVendido,
+    },
+    { where: { codCliente, codAtivo } },
+  );
+
+  return qtdUpdated;
+}
+
 async function sellAssetsService({ codCliente, codAtivo, qtdeAtivo }) {
   const qtTotal = await getClientAssets(codCliente, codAtivo);
 
@@ -24,3 +39,4 @@ async function sellAssetsService({ codCliente, codAtivo, qtdeAtivo }) {
 
 module.exports = {
   sellAssetsService,
+};
