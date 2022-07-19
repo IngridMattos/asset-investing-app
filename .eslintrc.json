@@ -14,6 +14,7 @@
     },
     "rules": {
         "eslint prefer-template": "error",
-        "eslint-env es6"
+        "max-len": ["error", {"code": 120}]
+        // "eslint-env es6"
     }
 }
