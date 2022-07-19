@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   up: async (queryInterface, Sequelize) => {
     await queryInterface.createTable('Wallets', {
@@ -7,31 +6,31 @@ module.exports = {
         type: Sequelize.INTEGER,
         references: {
           model: 'Clients',
-          key: 'codCliente'
+          key: 'codCliente',
         },
-        onDelete:'CASCADE',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        primaryKey: true
+        primaryKey: true,
       },
       codAtivo: {
         allowNull: false,
         type: Sequelize.INTEGER,
         references: {
           model: 'Assets',
-          key: 'codAtivo'
+          key: 'codAtivo',
         },
-        onDelete:'CASCADE',
+        onDelete: 'CASCADE',
         onUpdate: 'CASCADE',
-        primaryKey: true
+        primaryKey: true,
       },
       qtdeAtivo: {
         allowNull: false,
-        type: Sequelize.INTEGER
-      }
-    })
+        type: Sequelize.INTEGER,
+      },
+    });
   },
 
   down: async (queryInterface, Sequelize) => {
     await queryInterface.dropTable('Wallets');
-  }
+  },
 };
