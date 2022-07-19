@@ -11,3 +11,16 @@ async function reduceAmountOfAssets(codAtivo, qtdeAtivoComprado, amountAssets) {
     { where: { codAtivo } });
     return qtdUpdated;
 };
+
+async function updatingClientAssets(codCliente, codAtivo, qtdeAtivoComprado) {
+
+    const amount = await getClientAssets(codCliente, codAtivo)
+
+    const [qtdUpdated] = await model.Wallet.update({
+        qtdeAtivo: amount + qtdeAtivoComprado
+    },
+    { where: { codCliente, codAtivo } });
+
+    return qtdUpdated;
+};
+
