@@ -2,21 +2,21 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Assets', {
-      id: {
+      codAtivo: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      nameAsset: {
+      nomeAtivo: {
         allowNull: false,
         type: Sequelize.STRING
       },
-      amountAssets: {
+      qtdeAtivo: {
         allowNull: false,
         type: Sequelize.INTEGER
       },
-      assetValue: {
+      valor: {
         allowNull: false,
         type: Sequelize.DECIMAL(10, 2),
       },
