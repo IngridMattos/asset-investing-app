@@ -24,3 +24,26 @@ async function updatingClientAssets(codCliente, codAtivo, qtdeAtivoComprado) {
     return qtdUpdated;
 };
 
+async function buyAssetsService({ codCliente, codAtivo, qtdeAtivo }) {
+    const amountAssets = await getAssets(codAtivo);
+
+    if (qtdeAtivo > amountAssets ) {
+        return {
+            status: 400,
+            message: "A quantidade de ativos na corretora é insuficiente"
+        }
+    }
+    const selling = await reduceAmountOfAssets(codAtivo, qtdeAtivo, amountAssets);
+    const shopping = await updatingClientAssets(codCliente, codAtivo, qtdeAtivo);
+    if (selling === 1 && shopping ===1) {
+        return {
+            status: 200,
+            message: "Compra efetuada"
+        };
+    }
+}
+ 
+
+module.exports = {
+    buyAssetsService,
+};
