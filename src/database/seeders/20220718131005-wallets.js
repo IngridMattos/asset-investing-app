@@ -4,44 +4,44 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Wallets', [
       {
-        clientId: 1,
-        assetId: 1,
-        amountCLientAssets: 2
+        codCliente: 1,
+        codAtivo: 1,
+        qtdeAtivo: 2
       },
       {
-        clientId: 1,
-        assetId: 2,
-        amountCLientAssets: 3
+        codCliente: 1,
+        codAtivo: 2,
+        qtdeAtivo: 3
       },
       {
-        clientId: 2,
-        assetId: 1,
-        amountCLientAssets: 5
+        codCliente: 2,
+        codAtivo: 1,
+        qtdeAtivo: 5
       },
       {
-        clientId: 3,
-        assetId: 1,
-        amountCLientAssets: 2
+        codCliente: 3,
+        codAtivo: 1,
+        qtdeAtivo: 2
       },
       {
-        clientId: 3,
-        assetId: 2,
-        amountCLientAssets: 2
+        codCliente: 3,
+        codAtivo: 2,
+        qtdeAtivo: 2
       },
       {
-        clientId: 3,
-        assetId: 3,
-        amountCLientAssets: 2
+        codCliente: 3,
+        codAtivo: 3,
+        qtdeAtivo: 2
       },
       {
-        clientId: 4,
-        assetId: 2,
-        amountCLientAssets: 5
+        codCliente: 4,
+        codAtivo: 2,
+        qtdeAtivo: 5
       },
       {
-        clientId: 4,
-        assetId: 3,
-        amountCLientAssets: 10
+        codCliente: 4,
+        codAtivo: 3,
+        qtdeAtivo: 10
       },
     ])
   },

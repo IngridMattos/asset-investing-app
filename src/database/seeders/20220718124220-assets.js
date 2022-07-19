@@ -4,19 +4,19 @@ module.exports = {
   async up (queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Assets', [
       {
-        nameAsset: "NVDA",
-        amountAssets: 50,
-        assetValue: 157.62
+        nomeAtivo: "NVDA",
+        qtdeAtivo: 50,
+        valor: 157.62
       },
       {
-        nameAsset: "NU",
-        amountAssets: 50,
-        assetValue: 3.85
+        nomeAtivo: "NU",
+        qtdeAtivo: 50,
+        valor: 3.85
       },
       {
-        nameAsset: "JNJ",
-        amountAssets: 50,
-        assetValue: 178.23
+        nomeAtivo: "JNJ",
+        qtdeAtivo: 50,
+        valor: 178.23
       },
     ])
   },
