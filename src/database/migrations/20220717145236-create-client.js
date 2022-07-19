@@ -2,17 +2,17 @@
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Clients', {
-      id: {
+      codCliente: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      name: {
+      nome: {
         allowNull: false,
         type: Sequelize.STRING()
       },
-      balance: {
+      saldo: {
         allowNull: false,
         type: Sequelize.DECIMAL(10, 2),
       },
@@ -20,13 +20,13 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now'),
-        field: 'created'
+        field: 'criado'
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now'),
-        field: 'updated'
+        field: 'atualizado'
       }
     });
   },
