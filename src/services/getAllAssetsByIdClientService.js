@@ -17,7 +17,7 @@ async function getValuesById(clientAssets) {
   return values;
 }
 
-async function getAllAssetsByIdService(codCliente) {
+async function getAllAssetsByIdClientService(codCliente) {
   const allAssetsAndClients = await model.Wallet.findAll({
     include: [
       {
@@ -28,10 +28,10 @@ async function getAllAssetsByIdService(codCliente) {
     ],
     where: { codCliente },
   });
-  const teste = await getValuesById(allAssetsAndClients);
-  return teste;
+  const allAssetsOfClients = await getValuesById(allAssetsAndClients);
+  return allAssetsOfClients;
 }
 
 module.exports = {
-  getAllAssetsByIdService,
+  getAllAssetsByIdClientService,
 };
