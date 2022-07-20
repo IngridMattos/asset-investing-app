@@ -22,17 +22,17 @@ const WalletShema = (sequelize, DataTypes) => {
   );
 
   WalletTable.associate = (models) => {
-    models.Client.belongsToMany(models.Asset, {
+    WalletTable.belongsToMany(models.Asset, {
       as: 'Assets',
-      through: 'Wallet',
-      foreignKey: 'codAtivo',
-      otherKey: 'codCliente',
-    });
-    models.Asset.belongsToMany(models.Client, {
-      as: 'categories',
       through: 'Wallet',
       foreignKey: 'codCliente',
       otherKey: 'codAtivo',
+    });
+    WalletTable.belongsToMany(models.Client, {
+      as: 'Clients',
+      through: 'Wallet',
+      foreignKey: 'codAtivo',
+      otherKey: 'codCliente',
     });
   };
 
