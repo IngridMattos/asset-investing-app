@@ -1,17 +1,20 @@
 const AssetShema = (sequelize, DataTypes) => {
-  const AssetTable = sequelize.define('Asset', {
-    codAtivo:{
-      primaryKey:true,
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+  const AssetTable = sequelize.define(
+    'Asset',
+    {
+      codAtivo: {
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+      },
+      nomeAtivo: DataTypes.STRING,
+      qtdeAtivo: DataTypes.INTEGER,
+      valor: DataTypes.DECIMAL(10, 2),
     },
-    nomeAtivo: DataTypes.STRING,
-    qtdeAtivo: DataTypes.INTEGER,
-    valor: DataTypes.DECIMAL(10, 2),
-  },
-  {
-    timestamps: false
-  });
+    {
+      timestamps: false,
+    },
+  );
 
   return AssetTable;
 };

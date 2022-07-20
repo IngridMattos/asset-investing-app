@@ -1,7 +1,7 @@
 const ClientShema = (sequelize, DataTypes) => {
   const ClientTable = sequelize.define('Client', {
-    id:{
-      primaryKey:true,
+    codCliente: {
+      primaryKey: true,
       autoIncrement: true,
       type: DataTypes.INTEGER,
     },

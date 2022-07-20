@@ -1,4 +1,3 @@
-'use strict';
 module.exports = {
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Clients', {
@@ -6,11 +5,11 @@ module.exports = {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
       },
       nome: {
         allowNull: false,
-        type: Sequelize.STRING()
+        type: Sequelize.STRING(),
       },
       saldo: {
         allowNull: false,
@@ -20,17 +19,17 @@ module.exports = {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now'),
-        field: 'criado'
+        field: 'criado',
       },
       updatedAt: {
         allowNull: false,
         type: Sequelize.DATE,
         defaultValue: Sequelize.fn('now'),
-        field: 'atualizado'
-      }
+        field: 'atualizado',
+      },
     });
   },
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Clients');
-  }
+  },
 };
