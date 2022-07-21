@@ -1,15 +1,19 @@
 const ClientShema = (sequelize, DataTypes) => {
-  const ClientTable = sequelize.define('Client', {
-    codCliente: {
-      primaryKey: true,
-      autoIncrement: true,
-      type: DataTypes.INTEGER,
+  const ClientTable = sequelize.define(
+    'Client',
+    {
+      codCliente: {
+        primaryKey: true,
+        autoIncrement: true,
+        type: DataTypes.INTEGER,
+      },
+      nome: DataTypes.STRING,
+      saldo: DataTypes.DECIMAL(10, 2),
     },
-    nome: DataTypes.STRING,
-    saldo: DataTypes.DECIMAL(10, 2),
-    criado: DataTypes.DATE,
-    atualizado: DataTypes.DATE,
-  });
+    {
+      timestamps: false,
+    },
+  );
 
   return ClientTable;
 };
