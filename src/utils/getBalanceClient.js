@@ -6,7 +6,7 @@ async function getBalanceClient(codCliente) {
     where: { codCliente },
   });
   // O retorno do saldo volta como String, necessário tranformar em number.
-  return +amount.dataValues.saldo;
+  return Number(amount.dataValues.saldo);
 }
 
 module.exports = { getBalanceClient };
