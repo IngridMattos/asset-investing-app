@@ -154,6 +154,58 @@ router.get('/investimentos/ativos/:codAtivo/', tokenValidation, getAssetByIdCont
  *             description: 'Compra não realizada'
  */
 router.post('/investimentos/comprar', tokenValidation, buyAssetsController);
+
+/**
+ * @swagger
+ * components:
+ *     schemas:
+ *        Ativos:
+ *              type: object
+ *              required:
+ *                 -codCLiente,
+ *                 -codAtivo,
+ *                 -qtdeAtivo
+ *              properties:
+ *                 codCLiente:
+ *                        type: INTEGER
+ *                 codAtivo:
+ *                        type: INTEGER
+ *                 qtdeAtivo:
+ *                        type: INTEGER
+ *              example:
+ *                 codCliente: 3
+ *                 codAtivo: 2
+ *                 qtdeAtivo: 16
+ */
+/**
+ * @swagger
+ * /investimentos/vender:
+ *      post:
+ *         tags: [Ativos]
+ *         description: Esse Endpoint realiza a venda de uma quantidade de ativos de um determinado cliente.
+ *         security:
+ *           - bearerAuth: []
+ *         requestBody:
+ *           required: true
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 $ref: '#/components/schemas/Ativos'
+ *               example:
+ *                 codCliente: 3
+ *                 codAtivo: 2
+ *                 qtdeAtivo: 15
+ *         responses:
+ *           200:
+ *             description: 'Venda efetuada'
+ *           400:
+ *             description: 'A quantidade de ativos é insuficiente'
+ *           401:
+ *             description: 'Token não foi encrontrado'
+ *           404:
+ *             description: 'Venda não realizada'
+ */
 router.post('/investimentos/vender', tokenValidation, sellAssetsController);
 router.get('/ativos/:codCliente', tokenValidation, getAllAssetsByIdClientController);
 
