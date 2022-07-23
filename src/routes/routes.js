@@ -19,7 +19,56 @@ const { getBalanceCLientController } = require('../controllers/getBalanceClientC
 const { getAllAssetsInfoController } = require('../controllers/getAllAssetsInfoController');
 const { loginGenerateJWTTokenController } = require('../controllers/loginGenerateJWTTokenController');
 
-//    ---- ROTAS ---
+/**
+ * @swagger
+ * tags:
+ *     name: Ativos
+ *     description: Endpoints para os Ativos.
+ */
+/**
+ * @swagger
+ * components:
+ *     schemas:
+ *        Ativos:
+ *              type: object
+ *              required:
+ *                 -codAtivo
+ *                 -nomeAtivo
+ *                 -qtdeAtivo
+ *                 -valor
+ *              properties:
+ *                 codAtivo:
+ *                        type: INTEGER
+ *                 nomeAtivo:
+ *                        type: STRING
+ *                 qtdeAtivo:
+ *                        type: INTEGER
+ *                 valor:
+ *                        type: DECIMAL
+ *              example:
+ *                 codAtivo: 1
+ *                 nomeAtivo: nomeDaAção
+ *                 qtdeAtivo: 50
+ *                 valor: 100.00
+ */
+/**
+ * @swagger
+ * /ativos:
+ *   get:
+ *     tags: [Ativos]
+ *     description: Esse Endpoint retorna uma lista com todos os ativos e suas informações.
+ *     summary: 'Lista todos os ativos da corretora'
+ *     security:
+ *       - bearerAuth: []
+ *     responses:
+ *       200:
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 $ref: '#/components/schemas/Ativos'
+ */
 
 router.post('/investimentos/comprar', tokenValidation, buyAssetsController);
 router.post('/investimentos/vender', tokenValidation, sellAssetsController);
