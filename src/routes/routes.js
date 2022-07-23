@@ -335,6 +335,28 @@ router.post('/conta/deposito', depositValidation, tokenValidation, bankDepositCl
  *             description: 'Algo deu errado, o saque não pode ser realizado'
  */
 router.post('/conta/saque', depositValidation, tokenValidation, bankDraftClientController);
+
+/**
+ * @swagger
+ * /conta/{codCliente}:
+ *      get:
+ *         tags: [Saldo]
+ *         description: Esse Endpoint exibe o saldo da conta de um determinado cliente.
+ *         security:
+ *           - bearerAuth: []
+ *         parameters:
+ *           - in: path
+ *             name: codCLiente
+ *             type: integer
+ *             required: true
+ *         responses:
+ *           200:
+ *             content:
+ *               application/json:
+ *                 schema:
+ *                   type: array
+ */
+
 router.get('/conta/:codCliente', tokenValidation, getBalanceCLientController);
 
 // Criando rota geral para o retorno de todos os ativos e informações:
