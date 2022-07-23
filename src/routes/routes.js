@@ -70,6 +70,38 @@ const { loginGenerateJWTTokenController } = require('../controllers/loginGenerat
  *                 $ref: '#/components/schemas/Ativos'
  */
 
+router.get('/ativos', tokenValidation, getAllAssetsInfoController);
+/**
+ * @swagger
+ * tags:
+ *     name: Ativos
+ *     description: Endpoints referente aos ativos.
+ */
+/**
+ * @swagger
+ * /investimentos/ativos/{codAtivo}:
+ *      get:
+ *         tags: [Ativos]
+ *         description: Esse Endpoint retorna um ativos, pelo seu codAtivo que é o mesmo que id.
+ *         security:
+ *           - bearerAuth: []
+ *         parameters:
+ *           - in: path
+ *             name: codAtivo
+ *             type: integer
+ *             required: true
+ *         responses:
+ *           200:
+ *             content:
+ *               application/json:
+ *                 schema:
+ *                   type: array
+ *           401:
+ *             description: 'Token não foi encrontrado'
+ */
+
+router.get('/investimentos/ativos/:codAtivo/', tokenValidation, getAssetByIdController);
+
 router.post('/investimentos/comprar', tokenValidation, buyAssetsController);
 router.post('/investimentos/vender', tokenValidation, sellAssetsController);
 router.get('/ativos/:codCliente', tokenValidation, getAllAssetsByIdClientController);
