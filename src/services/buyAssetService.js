@@ -45,8 +45,8 @@ async function buyAssetsService({ codCliente, codAtivo, qtdeAtivo }) {
     };
   }
   return {
-    status: 400,
-    message: 'Atualização não realizada',
+    status: 404,
+    message: 'Compra não realizada',
   };
 }
 
