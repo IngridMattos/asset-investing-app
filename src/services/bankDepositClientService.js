@@ -12,7 +12,7 @@ async function bankDepositClientService({ codCliente, valor }) {
   );
   if (qtdUpdated !== 1) {
     return {
-      status: 400,
+      status: 404,
       message: 'Algo deu errado, depósito não realizado',
     };
   }
