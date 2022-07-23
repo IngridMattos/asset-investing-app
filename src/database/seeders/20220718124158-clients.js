@@ -1,28 +1,26 @@
-'use strict';
-
 module.exports = {
-  async up (queryInterface, Sequelize) {
+  async up(queryInterface, Sequelize) {
     await queryInterface.bulkInsert('Clients', [
       {
-        nome: "John Lennon",
+        nome: 'John Lennon',
         saldo: 326.79,
       },
       {
-        nome: "Paul McCartney",
+        nome: 'Paul McCartney',
         saldo: 788.1,
       },
       {
-        nome: "George Harrison",
+        nome: 'George Harrison',
         saldo: 678.94,
       },
       {
-        nome: "Ringo Starr",
+        nome: 'Ringo Starr',
         saldo: 1.790,
-      }
-    ])
+      },
+    ]);
   },
 
-  async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Assets', null, {})
-  }
+  async down(queryInterface, Sequelize) {
+    await queryInterface.bulkDelete('Assets', null, {});
+  },
 };
