@@ -359,10 +359,45 @@ router.post('/conta/saque', depositValidation, tokenValidation, bankDraftClientC
 
 router.get('/conta/:codCliente', tokenValidation, getBalanceCLientController);
 
-// Criando rota geral para o retorno de todos os ativos e informações:
-router.get('/ativos', tokenValidation, getAllAssetsInfoController);
-
-// Rota para simulação de login para gerar o token:
+/**
+ * @swagger
+ * tags:
+ *     name: login
+ *     description: Endpoints referentes ao login.
+ */
+/**
+ * @swagger
+ * components:
+ *     schemas:
+ *        login:
+ *              type: object
+ *              required:
+ *                 -codCLiente
+ *              properties:
+ *                 codCLiente:
+ *                        type: INTEGER
+ *              example:
+ *                 codCLiente: 1
+ */
+/**
+ * @swagger
+ * /login:
+ *      post:
+ *         tags: [login]
+ *         description: Endpoint referente ao login para a simulação da criação de um token..
+ *         requestBody:
+ *           required: true
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 $ref: '#/components/schemas/login'
+ *               example:
+ *                 codCliente: 1
+ *         responses:
+ *           200:
+ *             description: 'StringDoToken'
+ */
 router.post('/login', loginGenerateJWTTokenController);
 
 module.exports = router;
