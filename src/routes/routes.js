@@ -207,6 +207,49 @@ router.post('/investimentos/comprar', tokenValidation, buyAssetsController);
  *             description: 'Venda não realizada'
  */
 router.post('/investimentos/vender', tokenValidation, sellAssetsController);
+
+/**
+ * @swagger
+ * tags:
+ *     name: AtivosDoCliente
+ *     description: Endpoint dos Ativos de um cliente.
+ */
+/**
+ * @swagger
+ * components:
+ *     schemas:
+ *        AtivosDoCliente:
+ *              type: object
+ *              required:
+ *                 -codCLiente
+ *              properties:
+ *                 codCLiente:
+ *                        type: INTEGER
+ *              example:
+ *                 codCLiente: 1
+ */
+/**
+ * @swagger
+ * /ativos/{codCliente}:
+ *      get:
+ *         tags: [AtivosDoCliente]
+ *         description: Esse Endpoint retorna uma lista com todos os ativos, de um determinado cliente.
+ *         security:
+ *           - bearerAuth: []
+ *         parameters:
+ *           - in: path
+ *             name: codCLiente
+ *             type: integer
+ *             required: true
+ *         responses:
+ *           401:
+ *             description: 'Token não foi encrontrado'
+ *           200:
+ *             content:
+ *               application/json:
+ *                 schema:
+ *                   type: array
+ */
 router.get('/ativos/:codCliente', tokenValidation, getAllAssetsByIdClientController);
 
 // Acrescentando o caminho /investimentos/ para a rota: /ativos/:codAtivo/  para que
