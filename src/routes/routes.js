@@ -252,10 +252,58 @@ router.post('/investimentos/vender', tokenValidation, sellAssetsController);
  */
 router.get('/ativos/:codCliente', tokenValidation, getAllAssetsByIdClientController);
 
-// Acrescentando o caminho /investimentos/ para a rota: /ativos/:codAtivo/  para que
-// assim exista distinção entre o /ativos/:codCliente na leitura e execução da rota:
+/**
+ * @swagger
+ * tags:
+ *     name: DepósitoSaque
+ *     description: Endpoints referente a depósito e saque da conta do cliente.
+ */
+/**
+ * @swagger
+ * components:
+ *     schemas:
+ *        DepósitoSaque:
+ *              type: object
+ *              required:
+ *                 -codCLiente
+ *                 -valor
+ *              properties:
+ *                 codCLiente:
+ *                        type: INTEGER
+ *                 valor:
+ *                        type: DECIMAL
+ *              example:
+ *                 codCLiente: 1
+ *                 valor: 100.00
+ */
+/**
+ * @swagger
+ * /conta/deposito:
+ *      post:
+ *         tags: [DepósitoSaque]
+ *         description: Esse Endpoint realiza o depósito de um valor para a conta de um determinado cliente.
+ *         security:
+ *           - bearerAuth: []
+ *         requestBody:
+ *           required: true
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 $ref: '#/components/schemas/DepósitoSaque'
+ *               example:
+ *                 codCliente: 3
+ *                 valor: 1000
+ *         responses:
+ *           200:
+ *             description: 'Depósito realizado com sucesso'
+ *           404:
+ *             description: 'Algo deu errado, depósito não realizado'
+ *           401:
+ *             description: 'Token não foi encrontrado'
 
-router.get('/investimentos/ativos/:codAtivo/', tokenValidation, getAssetByIdController);
+ */
+
 router.post('/conta/deposito', depositValidation, tokenValidation, bankDepositClientController);
 router.post('/conta/saque', depositValidation, tokenValidation, bankDraftClientController);
 router.get('/conta/:codCliente', tokenValidation, getBalanceCLientController);
