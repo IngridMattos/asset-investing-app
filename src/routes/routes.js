@@ -305,6 +305,35 @@ router.get('/ativos/:codCliente', tokenValidation, getAllAssetsByIdClientControl
  */
 
 router.post('/conta/deposito', depositValidation, tokenValidation, bankDepositClientController);
+
+/**
+ * @swagger
+ * /conta/saque:
+ *      post:
+ *         tags: [DepósitoSaque]
+ *         description: Esse Endpoint realiza o saque de um valor da a conta de um determinado cliente.
+ *         security:
+ *           - bearerAuth: []
+ *         requestBody:
+ *           required: true
+ *           content:
+ *             application/json:
+ *               schema:
+ *                 type: object
+ *                 $ref: '#/components/schemas/DepósitoSaque'
+ *               example:
+ *                 codCliente: 1
+ *                 valor: 400.30
+ *         responses:
+ *           200:
+ *             description: 'Saque realizado com sucesso'
+ *           400:
+ *             description: 'Valor na conta é insuficiente'
+ *           401:
+ *             description: 'Token não foi encrontrado'
+ *           404:
+ *             description: 'Algo deu errado, o saque não pode ser realizado'
+ */
 router.post('/conta/saque', depositValidation, tokenValidation, bankDraftClientController);
 router.get('/conta/:codCliente', tokenValidation, getBalanceCLientController);
 
