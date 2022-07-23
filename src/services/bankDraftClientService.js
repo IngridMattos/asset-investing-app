@@ -22,7 +22,7 @@ async function bankDraftClientService({ codCliente, valor }) {
   const qtdUpdated = await updateBalanceClient(codCliente, valor, amountBalanceClient);
   if (qtdUpdated !== 1) {
     return {
-      status: 400,
+      status: 404,
       message: 'Algo deu errado, o saque não pode ser realizado',
     };
   }

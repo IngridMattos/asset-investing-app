@@ -28,12 +28,12 @@ async function sellAssetsService({ codCliente, codAtivo, qtdeAtivo }) {
   if (shopping === 1) {
     return {
       status: 200,
-      message: 'venda efetuada',
+      message: 'Venda efetuada',
     };
   }
   return {
-    status: 400,
-    message: 'Atualização não realizada',
+    status: 404,
+    message: 'Venda não realizada',
   };
 }
 
