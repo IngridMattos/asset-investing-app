@@ -4,7 +4,9 @@
         "commonjs": true,
         "es2021": true,
         "es6": true,
-        "node": true
+        "node": true,
+        "jest": true,
+        "mocha": true
     },
     "extends": [
         "airbnb-base"
