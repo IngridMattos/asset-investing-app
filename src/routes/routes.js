@@ -350,6 +350,8 @@ router.post('/conta/saque', depositValidation, tokenValidation, bankDraftClientC
  *             type: integer
  *             required: true
  *         responses:
+ *           401:
+ *             description: 'Token não foi encrontrado'
  *           200:
  *             content:
  *               application/json:
