@@ -34,4 +34,5 @@ async function bankDraftClientService({ codCliente, valor }) {
 
 module.exports = {
   bankDraftClientService,
+  updateBalanceClient,
 };
