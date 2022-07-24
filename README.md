@@ -12,6 +12,7 @@
 - [`Rodando o projeto:`](#rodando-o-projeto)
 - [`✨ Features ✨:`](#-features-)
   - [`🗂 Documentação 🗂:`](#-documentação-)
+    - [`Swagger:`](#swagger)
 
 # `Sobre: 🕵🏿`
 
@@ -25,7 +26,7 @@ Este projeto foi desenvolvido como forma de participação e pré-seleção para
 
 ## `Padrões de organização do projeto 🗒️ :`
 
-O projeto foi organizado no padrão de arquitetura do **MSC** que possui a divisão de responsabilidades em camadas, sendo elas: **A Model, o Service e o Controller**. A camada de model é onde criamos o banco de dados e determinamos as relações entre as tabelas e para isso foi usada a **biblioteca de ORM(Object-Relational Mapping): Sequelize.** O banco de dados foi modelado com base na **Primeira, Segunda e Terceira forma Normal para um Database Design.** Na camada de Service se encontra toda a regra de negocio e a camada de Controller fica responsável por receber as requisições feitas à API e responder na saída as requisições.
+O projeto foi organizado no padrão de arquitetura do **MSC** que possui a divisão de responsabilidades em camadas, sendo elas: **A Model, o Service e o Controller**. A camada de model é onde criamos o banco de dados e determinamos as relações entre as tabelas e para isso foi usada a **biblioteca de ORM(Object-Relational Mapping): Sequelize.** O banco de dados :bank: :game_die: foi modelado com base na **Primeira, Segunda e Terceira forma Normal para um Database Design.** Na camada de Service se encontra toda a regra de negocio e a camada de Controller fica responsável por receber as requisições feitas à API e responder na saída as requisições. O desafio também conta com uma cobertura de testes, de algumas funções da camada de Service e uma função da camada de controller. O arquivo encontra-se na raiz do projeto!
 
 ## `Tecnologias usadas:` 
 
@@ -35,7 +36,7 @@ O projeto foi organizado no padrão de arquitetura do **MSC** que possui a divis
 
 - **Sequelize:** 
   
-  Biblioteca de ORM escolhida para abstrair a comunicação e interação com o Banco de Dados. Sendo possível, não apenas criar o banco de dados e suas tabelas com ela, como também determinar informações iniciais para as mesmas e assim ter o mínimo de insumo para um sistema em desenvolvimento e não em produção. Além disso, o Sequelize nos trás inúmeros métodos para facilitar as requisições necessárias.
+  Biblioteca de ORM escolhida para abstrair a comunicação e interação com o :bank: :game_die: Banco de Dados :bank: :game_die:. Sendo possível, não apenas criar o banco de dados e suas tabelas com ela, como também determinar informações iniciais para as mesmas e assim ter o mínimo de insumo para um sistema em desenvolvimento e não em produção. Além disso, o Sequelize nos trás inúmeros métodos para facilitar as requisições necessárias.
 
 - **Node.js:**
 
@@ -55,7 +56,11 @@ O projeto foi organizado no padrão de arquitetura do **MSC** que possui a divis
 
 - **JWT:**
   
-  É um token que podemos gerar com algumas informações do usuário, informações de configuração e um segredo que passamos como parâmetro. 
+  É um token que podemos gerar com algumas informações do usuário, informações de configuração e um segredo que passamos como parâmetro.
+
+- **Jest:** 
+
+  Foi a ferramenta utilizado para a realização dos testes. Um dos motivos da escolha do jest, além de ser a ferramenta que mais possuo familiaridade, é fato dele rodar os testes em paralelo o que agiliza o processo!!
 
 - **ESlint:**
   
@@ -84,7 +89,7 @@ A imagem do arquivo a seguir, têm os exemplos das variáveis de ambiente utiliz
 
 Alguns scripts foram configurados para a realização desse projeto. Você pode rodar esses scripts para executar tudo em sua maquina. 
 
-Após configurar as variáveis de ambiente, instale as dependências e rode o node.js para iniciar a aplicação: 
+Após configurar as variáveis de ambiente, clone o repositório e instale as dependências e rode o node.js para iniciar a aplicação: 
 
 ```
     npm install,
@@ -98,6 +103,13 @@ Depois rode os seguintes comandos, para respectivamente, remover o banco de dado
     npm run drop,
     npm run prestart,
     npm run seed,
+
+```
+
+Para rodar os testes basta rodar o script em seu terminal: 
+```
+
+    npm run test
 
 ```
 
@@ -124,4 +136,14 @@ O projeto conta com a documentação da API, onde é possível inclusive testar 
 
 Desta forma é possível visualizar todas as rotas, os parâmetros esperados e suas opções de retorno.
 
-OBS ☝ : É necessário a conexão com o banco de dados e ter gerado ele!!!!
+OBS ☝ : É necessário a conexão com o banco de dados e ter gerado ele. Além disso, precisa gerar o token na rota de login, e aplicar no Authorize, !!!!
+
+---
+
+### `Swagger:`
+
+A interface da documentação presente no caminho a cima, deve ser algo como isso: 
+
+---
+
+![imagem da tela do swagger](swagger.png)
