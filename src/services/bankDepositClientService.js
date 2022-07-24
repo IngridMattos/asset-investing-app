@@ -1,8 +1,8 @@
 const model = require('../database/models');
-const { getBalanceClient } = require('../utils/getBalanceClient');
+const utils = require('../utils/getBalanceClient');
 
 async function bankDepositClientService({ codCliente, valor }) {
-  const amountBalanceClient = await getBalanceClient(codCliente);
+  const amountBalanceClient = await utils.getBalanceClient(codCliente);
 
   const [qtdUpdated] = await model.Client.update(
     {
